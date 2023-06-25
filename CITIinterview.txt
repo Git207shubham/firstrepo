@@ -1,0 +1,184 @@
+
+222-----------------------
+Introduction
+Last project
+Functionality of the last project
+Functionality you developed
+
+
+In java, assume you are getting a new client, and they need to register themselves in your portal... can you tell me who the rest api flow work in this scenario?
+-- service layer ... business layer
+what will be the input/parameter to the controller? .. 
+---- custom model class.. (right)
+
+Assume you created the above... suppose you have an admin user, who has to provode a list of providers... how will you write this in RestAPI?
+
+
+Assume if I want a filter criteria... how will you implement that?
+
+Assume there are many parameter... say to search based on filter on many fields... how will you implement that?
+==> criteria interfac with meetscriteria method...
+==> multiple concrete classes meeting diff criteria and method's diff implementations
+==>.new class ..pass list to method of perticular implementation of criteria method
+
+333--------------------------------------------
+
+
+When you try to generate a report, if you have a huge list of doctors (thousands) active, how will you design this ? on the front end and back end?
+--pagination?
+==> loading all doctors dta would take lot of time and may crash also..so divide and load few doctors data in one multile pages is called pagination...
+with use of Paging AndSorting repository provided by springboot..
+==> saveAll method with parameter size,number,sorting order
+==> springbatch---reader ,writer, processor , 
+
+what are the parameters you would use in pagination ?
+==> Static Pagination With Spring Data This is the most convenient way to implement pagination in a web application. 
+It only needs to get the page and the number of result per page for a query.
+ Instead of using Repository or CrudRepository, you should use PaginationAndSortingRepository, which accepts an object of the "Pageable" type.
+
+Do you know how to connect to MySQL using Hibernate ?
+==> hibernate config
+
+How good are you with Lambda functions ?
+
+Can you tell me a simple stream that you have used in your last project ?
+==> filter function list.stream.sorterd(comparator)
+
+Can you please tell me about Spring beans and its scope ?
+==>Spring Bean Scope Bean Scope refers to the lifecycle of a bean, visibility of a bean, how long does the bean live, 
+how many instances are created, how is the bean shared
+
+In a multi threaded environment, will it be good to use Singleton?
+==> yes ,for good memory  memory management ,if multiple instances then multiple threads will have to choose among which instance to access 
+
+
+444-----------------------------------------
+
+2. What are backend changes required, if the request submit with N multiple phone numbers (N value is dynamic). Initially request contains only one phone number? 
+==>    Changes in bean class using @jointable(to map foreign key of second table in first table..so ) and @onetomany insert phones in anther table 
+
+
+3.	How will you implement insert the details from excel to database ?
+==>	We can implement logic using POI library create sheet reference object to establish with sheet and implement nested for loop to fetch each and each cell value 
+      and assign to bean class or map collection and save the details to table using Repo class 
+==>   I think for excel to DB, they were looking for “save all” or “bulk insert” right?...
+
+4.	Continuation to above question, how will insert multiple details to database? or how to insert bulk data to database? 
+==>  We can consider List and use saveall method to insert bulk data 
+==>   spring batch
+
+5.	What are different types of scopes for Spring Bean ? 
+==>	There are singleton, prototype, request, session, global session 
+
+6.	What is Autowired? 
+==>	Inserting objects/beans from spring ioc containers(appln context or bean factory) at runtime by Spring dependency injection mechanism 
+
+
+
+555---------------------------------------------------
+
+
+3.	was also asked about the file IO scenario and query to find the 2nd highest salary
+
+4.	Explain flow of creating a rest API for getting user data =>get api
+==>
+
+5.  How to calculate user salary from an excel file and persist(extend serializable--input binary stream ) it to DB 
+==>    
+
+6.	What will u do if the salary calculation part is taking too much time (i.e. use threads)
+==>  threaads use
+
+7.	What is a thread pool and why we use it
+==> 
+
+8.	Producer consumer problem in thread(i.e. inter thread communication)
+
+9.	What is context switching
+
+10.	Why we need spring framework
+
+14.	How good are you with Oracle…? 
+
+18.	Diff between array and vector
+
+22. Secondary caches in hibernate 
+==> ehcache cache configs file  
+
+24.	A user wants to upload file into system. This file is very huge (say Million records). 
+the file contains delimited fields. Each line is a record. Objective for u is to upload this into DB table. 
+Do some conversion. How will you do this. This upload will take hours to upload say 5 hours. 
+The user will upload. What will happen to the user end? Session will expire in 30min at user end. User will not have 
+info on what’s happening What would you propose on how to keep the user informed? Keep performance in mind.. when you provide solution to above.
+==>
+parallel stream
+==>
+
+6666---------------------
+
+5. What approach would you provide for retrieving the deatils of a customer with some filter criteria.
+==> criteria api use restriction class
+
+6. If we want to retrieve a customer information, what all could be the possible ways for perfoming the operation - 
+Http methods and also the input that can be used. 
+==> get load
+==> criteria api
+==> query
+
+777-------------------------
+
+Scenario-2 : I have a screen which should show all the customers. Can you write a method for that?
+-- I need a filter criteria. How will you implement that?
+-- in your input / RestAPI function, what will be your input? I want the filter string to be passed. How will you pass it to the controller class -->> Query param? Path param? Post method?
+-- What will be the return type? (list of objects)
+
+888--------------------------
+
+
+how the documents are stored in your system ?
+How the upload works? Details of how many candidates are included in one excel?
+how do you read this in program?
+Does the upload completion happen immediately? Or does the user have to wait?
+is there any batch involved?
+>>>Assume if the excel grows very large? Do you have any solution to improve the performance?-- Cache? what kind of cache-ing can you implement?
+if you want to insert 1000's of records very fast, how will you do that?
+==> batch processing---batchsize ---persist , flush , clear and then commit
+
+What is your return type? What does your response body contain?
+==>return type list of obj , consumer=application/json
+
+You have to click on the link of a candidate name... then you need to show all the details of the candidate... 
+I am asking you to write a RestAPI call to return all the info... can you give me the construct of this
+==>
+
+999--------------------------
+
+
+4.How to handle performance while uploading bulk data.
+==>spring.jpa.properties.hibernate.jdbc.batch_size=30
+==>using saveall method of jpa pass list to 1000's of users to it
+
+
+Scenario based questions:-
+- Having table with customer data and want to add multiple phone number to a single customer, how needs to modify the system on the basis of java front.
+
+- How to read an excel file having huge data on daily basis with java
+==>using POI library and pagination
+
+
+3. Application flow from frontend to Database (Angular -> SpringBoot -> DB)
+4. How to extract parameter present in URL for applying filtration of data ?
+==> request , path 
+==> hibernate validation--regular expresssion
+==> 
+
+5. How to pass multiple parameters in URL ?
+==>public void invoice(@RequestParam(name="invoiceNo") List<String> invoiceNos, @RequestParam(name="invoiceDate") List<String> invoiceDates)
+
+
+101010-----------------------
+
+If you press ‘submit’ button more than once accidentally, how would you 
+have your application manage that without allowing multiple updates happening in the backend”.
+==> front end solution--<input id="btnSubmit" type="submit" onclick="this.disabled = true">
+==> backend solution---constarint voilet----unique constarint error---handle ---
